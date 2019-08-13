@@ -5,6 +5,22 @@ import matplotlib.pyplot as plt
 import os
 import statistics as stat
 
+def Nmaxelements(list_, N): 
+    max_value_list = []
+    max_index_list = []
+    for i in range(0, N):  
+        max_value = -1
+        max_index = -1
+        # for j in range(len(list1)):
+        for j_index, j in enumerate(list_):
+            if j > max_value: 
+                max_value = j
+                max_index = j_index
+        list_.remove(max_value) 
+        max_value_list.append(max_value)
+        max_index_list.append(max_index) 
+    return max_value_list, max_index_list
+
 def read_data(file_path):
     allFiles = glob.glob(os.path.join(file_path,"*.txt"))
     data_list = []
@@ -60,8 +76,10 @@ def fisher(class_1, class_2, class_3, top_k):
         #print(mean_all)
         score_temp = ((stat.mean(value_1)-stat.mean(value_all))**2 + (stat.mean(value_2)-stat.mean(value_all))**2 + (stat.mean(value_3)-stat.mean(value_all))**2)/(stat.stdev(value_1)**2 + stat.stdev(value_2)**2 + stat.stdev(value_3)**2)
         score.append(score_temp)
-
-    print(score)
+    
+    max_value_list, max_index_list = Nmaxelements(score, top_k)
+    return max_value_list, max_index_list
+    
 
 # healthy_1 = data_array[0]
 # healthy_label = data_array[0][1]

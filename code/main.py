@@ -32,7 +32,9 @@ for i in range(20):
     u2_feature.append(u2_data_f[i] + u2_feature_t[i])
 
 #fisher criterion / 3 classes
-functions.fisher(h_feature, u1_feature, u2_feature, 3)
+fisher_value, fisher_index = functions.fisher(h_feature, u1_feature, u2_feature, 3)
+print('fisher value', fisher_value)
+print('fisher index', fisher_index)
 
 
 # plt.plot(h_data_f[1])
