@@ -1,0 +1,1 @@
+"# Health-detection_SVM"  initgit add README.mdgit commit -m "first commit"git remote add origin https://github.com/pohanwww/Health-detection_SVM.gitgit push -u origin master
