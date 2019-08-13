@@ -60,22 +60,28 @@ def time_features(data_t):
 
 def fisher(class_1, class_2, class_3, top_k):
     score = []
-    value_all = []
     for i in range(len(class_1[0])):
         value_1 = []
         value_2 = []
         value_3 = []
-        value_all = []
         for j in range(len(class_1)):
             value_1.append(abs(class_1[j][i]))
             value_2.append(abs(class_2[j][i]))
             value_3.append(abs(class_3[j][i]))
         value_all = value_1 + value_2 + value_3
-        #print(stat.mean(value_1))
-        #mean_all = (stat.mean(value_1)-stat.mean(value_all))**2 + (stat.mean(value_2)-stat.mean(value_all))**2 + (stat.mean(value_3)-stat.mean(value_all))**2
-        #print(mean_all)
-        score_temp = ((stat.mean(value_1)-stat.mean(value_all))**2 + (stat.mean(value_2)-stat.mean(value_all))**2 + (stat.mean(value_3)-stat.mean(value_all))**2)/(stat.stdev(value_1)**2 + stat.stdev(value_2)**2 + stat.stdev(value_3)**2)
+
+        mean_all = stat.mean(value_all)
+        score_temp = ((stat.mean(value_1)-mean_all)**2 + (stat.mean(value_2)-mean_all)**2 + (stat.mean(value_3)-mean_all)**2)/(stat.variance(value_1) + stat.variance(value_2) + stat.variance(value_3))
         score.append(score_temp)
     
     max_value_list, max_index_list = Nmaxelements(score, top_k)
     return max_value_list, max_index_list
+
+def data_selection(class_, index_list):
+    group_ = []
+    for i in range(len(class_)):
+        group_temp = []
+        for j in index_list:
+            group_temp.append(abs(class_[i][j]))
+        group_.append(group_temp)
+    return group_
