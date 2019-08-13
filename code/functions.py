@@ -79,32 +79,3 @@ def fisher(class_1, class_2, class_3, top_k):
     
     max_value_list, max_index_list = Nmaxelements(score, top_k)
     return max_value_list, max_index_list
-    
-
-# healthy_1 = data_array[0]
-# healthy_label = data_array[0][1]
-# fft = np.fft.fft(healthy_1)
-# plt.plot(healthy_1)
-# plt.show()
-# plt.plot(fft)
-# plt.show()
-# # print(healthy_label)
-# #for i in range(1, 21):
-# #    df = pd.read_csv("Normal Data Mar-26-14 Time 152"*"-{}.txt".format(i))
-# #    df = df.drop(df.index[0:4])
-# #    df = df.astype(float)
-# #    df['label'] = 1
-
-# #data = df.values
-# #list = []
-# #list2 = []
-# #for i in data:
-# #    list.append(i[0])
-# #list2.append(list)
-# #list2.append(1)
-# #plt.plot(data_array)
-# #plt.show()
-# #fft = np.fft.fft(data_array)
-# #
-# #plt.plot(fft)
-# #plt.show()
