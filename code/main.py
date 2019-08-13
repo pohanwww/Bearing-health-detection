@@ -35,7 +35,3 @@ for i in range(20):
 fisher_value, fisher_index = functions.fisher(h_feature, u1_feature, u2_feature, 3)
 print('fisher value', fisher_value)
 print('fisher index', fisher_index)
-
-
-# plt.plot(h_data_f[1])
-# plt.show()
