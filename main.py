@@ -49,10 +49,10 @@ u2_feature = u2_data_f
 #     u2_feature.append(u2_data_f[i] + u2_feature_t[i])
 
 # fisher criterion / 3 classes
-# fisher_value, fisher_index = functions.fisher(h_feature, u1_feature, u2_feature, 3)
-fisher_value = [73.31483215375786, 73.15726720606492, 69.2711064224858]
+fisher_value, fisher_index = functions.fisher(h_feature, u1_feature, u2_feature, 2)
+# fisher_value = [73.31483215375786, 73.15726720606492, 69.2711064224858]
 # fisher_index = [312, 333, 313]
-fisher_index = [312, 333]
+# fisher_index = [312, 333]
 
 # print('fisher value', fisher_value)
 # print('fisher index', fisher_index)
@@ -97,14 +97,14 @@ train_label_np = np.array(label_data)
 
 #Training
 plot_decision_regions(data_set_np, train_label_np, clf=clf, legend=0)
-plt.xlabel('{} Hz'.format(str(fisher_index[0])))
-plt.ylabel('{} Hz'.format(str(fisher_index[1])))
+plt.xlabel('{} Hz'.format(str(fisher_index[0]*2560 / 38400)))
+plt.ylabel('{} Hz'.format(str(fisher_index[1]*2560 / 38400)))
 plt.title('SVM on training')
 plt.show()
 
 #Testing
 plot_decision_regions(test_data_np, test_label_np, clf=clf, legend=0)
-plt.xlabel('{} Hz'.format(str(fisher_index[0])))
-plt.ylabel('{} Hz'.format(str(fisher_index[1])))
+plt.xlabel('{} Hz'.format(str(fisher_index[0]*2560 / 38400)))
+plt.ylabel('{} Hz'.format(str(fisher_index[1]*2560 / 38400)))
 plt.title('SVM on testing')
 plt.show()
