@@ -1,0 +1,1 @@
+Detect bearing health level using vibration data with SVM method.
