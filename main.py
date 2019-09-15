@@ -5,7 +5,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn import preprocessing
 from sklearn.svm import SVC
-import plot_svm
 import functions
 from mlxtend.plotting import plot_decision_regions
 
